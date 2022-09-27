@@ -22,8 +22,7 @@ class User(
 
     val code: String,
 
-    private var authorities: Set<GrantedAuthority>
 
 
-    ): UserDetails {
+    ) {
 }
