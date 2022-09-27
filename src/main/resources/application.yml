@@ -1,0 +1,9 @@
+server:
+  port: 6500
+spring:
+  jpa:
+    database: mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/telos
+    username: root
+    password: wjsansrk
