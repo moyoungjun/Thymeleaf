@@ -1,14 +1,11 @@
 server:
   port: 6500
 spring:
-  security:
-    user:
-      name: mo1212123
-      password: 1
-      roles: USER, ADMIN
   jpa:
     database: mysql
+    hibernate:
+      ddl-auto: update
   datasource:
-    url: jdbc:mysql://localhost:3306/telos
+    url: jdbc:mysql://localhost:3306/springboot
     username: root
     password: wjsansrk
