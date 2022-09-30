@@ -6,12 +6,13 @@
 </head>
 <body>
     <h1>Login Page</h1>
-    <form th:action = "@{/login}" method="post">
+    <form th:action = "@{/login}" th:object="${UserCreationRequest}" method="post">
         <label for = "username"> UserName</label>
-        <input type = "text" id = "username" name = "username" /><br />
+        <input type = "text" id = "username" name = "username" required="required" /><br />
         <label for = "password"> PassWord </label>
-        <input type = "text" id = "password" name = "password" /><br />
-        <button type = "submit">login</button>
+        <input type = "text" id = "password" th:name = "password" /><br />
+        <span th:if="${loginError != null}">사용자 이름 또는 비밀번호가 일치하지 않습니다.</span><br/>
+        <button type = "submit" id="login">login</button>
         <a th:href = "@{/register}">Sign Up</a>
     </form>
 

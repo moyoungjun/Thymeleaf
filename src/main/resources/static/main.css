@@ -1,0 +1,59 @@
+p{
+    font-family: Arial;
+}
+h1 {
+    color:pink;
+}
+header {
+    background: aquamarine;
+    color: black;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: aqua;
+    padding: 8px 12px;
+    align-items: center;
+}
+.navbar_menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+.navbar_menu li {
+    padding: 8px 30px;
+}
+.navbar_menu a {
+    text-decoration: none;
+    color: white;
+}
+.box {
+    width: 100px;
+    height: 60px;
+    padding: 22px 22px;
+    border: 1px solid red;
+    margin: 10px 10px 10px 10px;
+    background: blue;
+    float: right;
+    list-style: none;
+    text-align: center;
+}
+.box a {
+    color: blueviolet;
+    text-decoration: none;
+
+}
+.box button {
+    border: 0;
+    outline: 0;
+    background: brown;
+    width: 100%;
+}
+.box li{
+    font-weight: bold;
+}
+body{
+    background: pink;
+}

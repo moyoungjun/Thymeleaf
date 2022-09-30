@@ -9,23 +9,26 @@
     <form th:action="@{/register}" th:object="${userCreationRequest}" method = "post">
         <h1>회원가입</h1>
         <div>
-            <label for="username"></label>
+            <label for="username">아이디</label>
             <input type="text" id="username" name="username"/><br>
+            <input th:text="${uesrname}"/>
+            <p th:text="${'user'+username}"></p>
+            <p th:text="${'password'+password}"></p>
         </div>
         <div>
-            <label for="password"></label>
+            <label for="password">비밀번호</label>
             <input type="text" id="password" name="password"/><br>
         </div>
         <div>
-            <label for="email"></label>
+            <label for="email">이메일</label>
             <input type="text" id="email" name="email"/><br>
         </div>
         <div>
-            <label for="birth"></label>
+            <label for="birth">생일</label>
             <input type="date" id="birth" name="birth"/><br>
         </div>
         <div>
-            <label for="code"></label>
+            <label for="code">?</label>
             <input type="text" id="code" name="code"/><br>
         </div>
         <div>

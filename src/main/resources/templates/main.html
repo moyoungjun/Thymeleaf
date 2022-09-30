@@ -1,14 +1,40 @@
 <!DOCTYPE html>
-<html xmlns:th = "http://www.thymleaf.org" lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:href="@{/main.css}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+<nav class="navbar">
+    <ul class="navbar_menu">
+        <li><a th:href = "@{/register}">Sign 1</a></li>
+        <li><a th:href = "@{/register}">Sign 2</a></li>
+    </ul>
+</nav>
+<div class="box">
 
-<h1> thymleaf using</h1>
+<!--    <li sec:authorize="isAnonymous()"><button type="button" th:onclick="|location.href='@{/login}'|">로그인</button></li>-->
 
-<span th:text = "${data}"> </span>
+    <li>
+        <a sec:authorize="isAnonymous()" th:href = "@{/login}">로그인 </a>
+    </li>
 
+
+    <li><a th:href = "@{/register}">회원가입 </a></li>
+</div>
+
+<div sec:authorize="isAuthenticated()">
+    this user
+</div>
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+    This content is only shown to administrators.
+</div>
+<div sec:authorize="hasRole('ROLE_USER')">
+    This content is only shown to users.
+
+</div>
+Logged user: <span sec:authentication="name">Bob</span>
+Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
 </body>
 </html>

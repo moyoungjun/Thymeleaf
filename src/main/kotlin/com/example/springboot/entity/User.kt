@@ -32,7 +32,7 @@ class User(
     val code: String,
 
     @Column(nullable = false)
-    private val role: String
+    private var role: String
 
     ): UserDetails, BaseTime() {
 
@@ -53,6 +53,9 @@ class User(
 
     override fun getPassword(): String {
         return password
+    }
+    fun setAuthorize(authorities: Set<GrantedAuthority>) {
+        this.role = authorities.toString()
     }
 
     fun setPassword(password: String) {
@@ -79,6 +82,10 @@ class User(
 
     override fun isEnabled(): Boolean {
         return true
+    }
+
+    override fun toString(): String {
+        return "user ${username} ${password} ${birth} ${role}"
     }
 
 

@@ -1,6 +1,11 @@
 server:
   port: 6500
+  error:
+    whitelabel:
+      enabled: false
 spring:
+  thymeleaf:
+    prefix: classpath:/templates/
   jpa:
     database: mysql
     hibernate:

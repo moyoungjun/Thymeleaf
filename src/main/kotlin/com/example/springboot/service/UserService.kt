@@ -1,6 +1,7 @@
 package com.example.springboot.service
 
 import com.example.springboot.dto.UserCreationRequest
+import com.example.springboot.dto.UserLoginRequest
 import com.example.springboot.dto.UserResponse
 import com.example.springboot.entity.User
 import com.example.springboot.repository.UserRepository
@@ -23,14 +24,23 @@ class UserService(
      * @return user 반환
      */
     override fun loadUserByUsername(username: String): UserDetails {
-        return userRepository.findByUsername(username) ?: throw UsernameNotFoundException(username)
+
+        val principal: User = userRepository.findByUsername(username) ?:  throw UsernameNotFoundException("해당 사용자를 찾을 수 없습니다. : $username")
+            println(principal)
+        return principal
     }
 
     @Transactional
-    fun regiser(userCreationRequest: UserCreationRequest): UserResponse {
+    fun register(userCreationRequest: UserCreationRequest): UserResponse {
         val user = User(userCreationRequest)
         user.password = passwordEncoder.encode(user.password)
         userRepository.save(user)
+        return UserResponse(user)
+    }
+
+    fun login(userLoginRequest: UserLoginRequest): UserResponse{
+        val user = userRepository.findByUsername(userLoginRequest.username)
+            ?: throw  UsernameNotFoundException(userLoginRequest.username)
         return UserResponse(user)
     }
 

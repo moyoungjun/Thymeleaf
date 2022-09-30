@@ -17,19 +17,20 @@ class SecurityConfig {
         return BCryptPasswordEncoder()
     }
 
+
     @Bean
     @Throws(Exception::class)
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http
-            .authorizeRequests {
-                authorizeRequests ->
-                  authorizeRequests.antMatchers("/static/**","/register").permitAll()
-                      .anyRequest().authenticated()
-            }
-            .formLogin()
-            .loginPage("/login")
-            .permitAll()
-            .failureUrl("/login?error")
+            .authorizeRequests()
+            .antMatchers("/css/**","/static/**","/").permitAll()
+            .anyRequest().authenticated()
+            .and()
+                .formLogin()
+                .loginPage("/login")
+                .failureUrl("/login/error")
+                .defaultSuccessUrl("/")
+                .permitAll()
             .and()
             .logout()
             .logoutSuccessUrl("/")
