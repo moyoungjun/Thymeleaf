@@ -1,9 +1,7 @@
 package com.example.springboot.controller
 
 import com.example.springboot.dto.UserCreationRequest
-import com.example.springboot.dto.UserLoginRequest
 import com.example.springboot.service.UserService
-import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.validation.BindingResult
@@ -17,12 +15,10 @@ class MainController(
 ) {
     @GetMapping
     fun test(): String{
+
         return "/main"
     }
-    @GetMapping("/success")
-    fun success(@AuthenticationPrincipal userLoginRequest: UserLoginRequest): String{
-        return "/main"
-    }
+
     @GetMapping("/login")
     fun login(): String {
 
@@ -31,6 +27,11 @@ class MainController(
     @GetMapping("/login/error")
     fun loginError(model: Model): String {
         model.addAttribute("loginError", true)
+        return "login"
+    }
+    @GetMapping("/logout")
+    fun logout(model: Model): String {
+        model.addAttribute("logout", true)
         return "login"
     }
     @GetMapping("/register")
