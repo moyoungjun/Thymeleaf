@@ -29,11 +29,6 @@ class MainController(
         model.addAttribute("loginError", true)
         return "login"
     }
-    @GetMapping("/logout")
-    fun logout(model: Model): String {
-        model.addAttribute("logout", true)
-        return "login"
-    }
     @GetMapping("/register")
     fun register(): String{
         return "enter/register"

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css"/>
 </head>
-<body th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
+<body>
 <nav class="navbar">
     <ul class="navbar_menu">
         <li><a th:href = "@{/register}">Sign 1</a></li>
@@ -13,12 +14,10 @@
     </ul>
 </nav>
 <div class="box">
-    <li>
-        <a sec:authorize="isAnonymous()" th:href = "@{/login}">로그인 </a>
-        <span th:if="${logout != null}">사용자 이름 또는 비밀번호가 일치하지 않습니다.</span><br/>
-        <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
-    </li>
-    <li><a th:href = "@{/register}">회원가입 </a></li>
+
+    <a sec:authorize="isAnonymous()" th:href="@{/login}">로그인 </a>
+    <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a> </br>
+    <a th:href = "@{/register}"> 회원가입 </a>
 </div>
 
 </body>
