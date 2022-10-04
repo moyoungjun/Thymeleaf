@@ -7,12 +7,7 @@
     <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<nav class="navbar">
-    <ul class="navbar_menu">
-        <li><a th:href = "@{/register}">Sign 1</a></li>
-        <li><a th:href = "@{/register}">Sign 2</a></li>
-    </ul>
-</nav>
+<div th:replace="fragments/nav::main-nav"></div>
 <div class="box">
 
     <a sec:authorize="isAnonymous()" th:href="@{/login}">로그인 </a>
