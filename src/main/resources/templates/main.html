@@ -3,17 +3,55 @@
       xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>My Blog</title>
+    <div class="logo"><img th:src="@{/css/logo.png}"></div>
     <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css"/>
+    <div th:replace="/fragments/nav::main-nav"></div>
 </head>
 <body>
-<div th:replace="fragments/nav::main-nav"></div>
-<div class="box">
+<hr>
+<div class="content-wrapper">
+        <div class="sidebar">
+            hgi
+        </div>
+        <hr>
+        <div class="content">
+            <article>
+                <div>
+                    SNS
+                </div>
+                <div>
+                    기술스택
+                </div>
+                <div>
+                    학력 및 경력사항
+                </div>
+                <div>
+                    학력 및 경력사항
+                </div>
+                <div>
+                    학력 및 경력사항
+                </div>
+                <div>
+                    학력 및 경력사항
+                </div>
 
-    <a sec:authorize="isAnonymous()" th:href="@{/login}">로그인 </a>
-    <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a> </br>
-    <a th:href = "@{/register}"> 회원가입 </a>
+            </article>
+        </div>
+        <hr>
+        <div class="box">
+            <button sec:authorize="isAnonymous()" th:onclick="|location.href='@{/login}'|" >로그인</button>
+            <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/myPage}">내정보</a>
+            <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
+            <div>
+                <a sec:authorize="isAnonymous()" th:href = "@{/register}"> 회원가입 </a>
+                <a sec:authorize="isAnonymous()" th:href="@{/register}">아이디찾기</a>
+                <a sec:authorize="isAnonymous()" th:href="@{/register}">비밀번호찾기</a>
+            </div>
+        </div>
+
 </div>
-
+<hr>
 </body>
+<footer th:replace="/fragments/footer::main-footer"></footer>
 </html>
