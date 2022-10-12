@@ -1,7 +1,12 @@
+body {
+    width: 100%;
+    height: 100%;
+}
 
 h1 {
     color:pink;
 }
+
 header {
     background: aquamarine;
     color: black;
@@ -10,7 +15,7 @@ header {
 .navbar {
     display: flex;
     justify-content: space-between;
-    background-color: aqua;
+    background-color: yellowgreen;
     padding: 8px 12px;
     align-items: center;
 }
@@ -28,30 +33,88 @@ header {
     color: white;
 }
 .box {
-    width: 100px;
-    height: 60px;
-    padding: 22px 22px;
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    gap: 5px 0px;
+    width: 200px;
+    height: 70px;
+    padding: 15px 20px;
+    border: 3px yellowgreen;
     margin: 10px 10px 10px 10px;
-    background: blue;
+    background: yellowgreen;
     float: right;
     list-style: none;
-    text-align: center;
 }
 .box a {
-    color: blueviolet;
+    color: white;
     text-decoration: none;
-
+    font-size: 11px;
 }
 .box button {
     border: 0;
     outline: 0;
-    background: brown;
+    background: green;
+    color: white;
     width: 100%;
+    height: 75%;
+    font-weight: bold;
+    padding: 10px 5px;
+    text-align: center;
 }
 .box li{
     font-weight: bold;
 }
 body{
-    background: pink;
+    background: white;
+}
+.footer {
+    width: 100%;
+    height: 110px; /* 내용물에 따라 알맞는 값 설정 */
+    bottom: 0px;
+    position: absolute;
+    border-top: solid 1px green;
+}
+.logo {
+    text-align: center;
+}
+
+
+/*  게시판  */
+
+.post-wrapper {
+    margin-top: 10px;
+    border-top: solid 1px green;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-container {
+    width: 60%;
+    padding: 20px 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 30px 10px
+}
+
+.content-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.content{
+
+    margin-top:10px;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar {
+    margin-top:10px;
+    width: 10%;
+    align-self: center;
 }

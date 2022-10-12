@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>글쓰기</title>
+    <div class="logo"><img th:src="@{/css/logo.png}"></div>
+    <link th:href="@{/css/write.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css"/>
+    <div th:replace="/fragments/nav::main-nav"></div>
+</head>
+<body>
+
+<form th:action="@{/post/write}" method = "post">
+    <h3>글 쓰기</h3>
+    <div class="write-wrapper">
+        <div class="write-container">
+            제목 :
+            <input type="text"/>
+            내용 :
+            <textarea id="write" name="write" rows="4" cols="50">
+
+            </textarea>
+
+            <button class="write-button" type="submit" id="post">저장</button>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>

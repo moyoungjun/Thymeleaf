@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>UserName</th>
+            <th>Birth</th>
+            <th>E-mail</th>
+        </tr>
+        </thead>
+
+        <tbody>
+             <tr th:each="user: ${user}" >
+                 <td>
+                    <p th:text="${user.username}"></p>
+                 </td>
+                 <td>
+                    <p th:text="${user.birth}"></p>
+                 </td>
+                <td>
+                    <p th:text="${user.email}"></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

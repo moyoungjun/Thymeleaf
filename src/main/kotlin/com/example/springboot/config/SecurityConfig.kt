@@ -22,7 +22,7 @@ class SecurityConfig{
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http
             .authorizeRequests()
-            .antMatchers("/css/**","/**").permitAll()
+            .antMatchers("/css/**","/","/post","/register").permitAll()
             .anyRequest().authenticated()
             .and()
                 .formLogin()

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글</title>
+    <div class="logo"><img th:src="@{/css/logo.png}"></div>
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css"/>
+    <div th:replace="/fragments/nav::main-nav"></div>
+</head>
+<body>
+<section>
+<div class="post-wrapper">
+    <div class="post-container">
+        <table class="post-table">
+            <thead>
+            <tr>
+                <th scope="col" class="th-num">번호</th>
+                <th scope="col" class="th-title">제목</th>
+                <th scope="col" class="th-date">등록일</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>3</td>
+                <th>
+                    <a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a>
+                    <p>테스트</p>
+                </th>
+                <td>2017.07.13</td>
+            </tr>
+            </tbody>
+        </table>
+        <button sec:authorize="isAuthenticated()" th:onclick="|location.href='@{/post/write}'|" > 글 쓰기 </button>
+    </div>
+</div>
+</section>
+
+</body>
+<footer th:replace="/fragments/footer::main-footer"></footer>
+
+</html>

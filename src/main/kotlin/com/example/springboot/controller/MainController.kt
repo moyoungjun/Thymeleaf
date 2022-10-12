@@ -15,13 +15,11 @@ class MainController(
 ) {
     @GetMapping
     fun test(): String{
-
         return "/main"
     }
 
     @GetMapping("/login")
     fun login(): String {
-
         return "/login"
     }
     @GetMapping("/login/error")
@@ -35,12 +33,12 @@ class MainController(
     }
     @PostMapping("/register")
     fun registerPost(@Valid userCreationRequest: UserCreationRequest, bindingResult: BindingResult): String{
-        println(userCreationRequest)
-
-        val a =userService.register(userCreationRequest)
-        println(a)
-
         return "enter/register"
+    }
+
+    @GetMapping("/post")
+    fun post(): String{
+        return "/post/post"
     }
 
 }

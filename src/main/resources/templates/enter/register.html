@@ -5,27 +5,26 @@
     <title>Sing Up</title>
 </head>
 <body>
-회원가입페이지
     <form th:action="@{/register}" th:object="${userCreationRequest}" method = "post">
         <h1>회원가입</h1>
         <div>
             <label for="username">아이디</label>
-            <input type="text" id="username" name="username"/><br>
+            <input type="text" id="username" name="username" /><br>
         </div>
         <div>
             <label for="password">비밀번호</label>
             <input type="text" id="password" name="password"/><br>
         </div>
         <div>
-            <label for="email">이메일</label>
+            <label for="email"> 이메일</label>
             <input type="text" id="email" name="email"/><br>
         </div>
         <div>
-            <label for="birth">생일</label>
+            <label for="birth"> 생일</label>
             <input type="date" id="birth" name="birth"/><br>
         </div>
         <div>
-            <label for="code">?</label>
+            <label for="code">코드</label>
             <input type="text" id="code" name="code"/><br>
         </div>
         <div>
