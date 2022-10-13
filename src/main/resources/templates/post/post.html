@@ -16,17 +16,16 @@
             <tr>
                 <th scope="col" class="th-num">번호</th>
                 <th scope="col" class="th-title">제목</th>
-                <th scope="col" class="th-date">등록일</th>
+                <th scope="col" class="th-date">작성 날짜</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>3</td>
+            <tr th:each="post:${post}">
+                <td th:text="${post.id}"></td>
                 <th>
-                    <a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a>
-                    <p>테스트</p>
+                    <a th:text="${post.title}" th:href="@{/post/{id}(id=${post.id})}"></a>
                 </th>
-                <td>2017.07.13</td>
+                <td th:text="${post.createdAt}"></td>
             </tr>
             </tbody>
         </table>
