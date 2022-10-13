@@ -35,10 +35,4 @@ class MainController(
     fun registerPost(@Valid userCreationRequest: UserCreationRequest, bindingResult: BindingResult): String{
         return "enter/register"
     }
-
-    @GetMapping("/post")
-    fun post(): String{
-        return "/post/post"
-    }
-
 }
